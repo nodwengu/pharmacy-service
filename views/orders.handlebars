@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+   <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" media="screen,projection" />
+   <link type="text/css" rel="stylesheet" href="css/style.css" media="screen,projection" />
+</head>
+
+<body>
+   {{buttonStatus}}
+   <div class="container">
+      <div class="row d-flex justify-content-center" style="border: solid white 1px; margin-top: 12px;">
+         <h1>Orders</h1> 
+      </div>
+      <div class="row">
+        <div class="budget pizza">
+            <h2 class="d-flex">Case Manifest/Prescription Order</h2>
+
+            <table>
+               <thead>
+                  <tr>
+                     <th>ID</th>
+                     <th>Patient</th>
+                     <th>Medicine</th>
+                     <th>Dosage/directions</th>
+                     <th>Order date</th>
+                     <th>Order_status</th>
+                     <th>Action</th>
+                  </tr>
+               </thead>
+
+                <tr>
+                  <td>#{{id}}1</td>
+                  <td>{{first_name}}Name</td>
+                  <td>{{name}}</td>
+                  <td>{{dosage}}</td>
+                  <td>12/12/22</td>
+              
+                  <td>{{order_status}}status</td>
+                  <td><a href="/update-order/{{id}}" class="btn btn-outline-light orderBtn" type="submit">Fullfill order</a></td>
+               </tr>
+
+               {{#each orders}}
+               {{!-- <tr>
+                  <td>#{{id}}1</td>
+                  <td>{{first_name}}Name</td>
+                  <td>{{name}}</td>
+                  <td>{{dosage}}</td>
+                  <td>12/12/22</td>
+              
+                  <td>{{order_status}}status</td>
+                  <td><a href="/update-order/{{id}}" class="btn btn-outline-light orderBtn" type="submit">Fullfill order</a></td>
+               </tr> --}}
+               {{/each}}
+
+               <tr>
+                  <td>Total</td>
+                  <td colspan="5"></td>
+                  <td id="total">R<span id="totalElem">00.00</span></td>
+               </tr>
+            </table>
+
+            {{!-- <div class="form-group mt-3">
+               <a href="/create-order" class="btn btn-outline-light orderBtn">Create order</a>
+               <a href="/create-order" class="btn btn-outline-light orderBtn">Cancel</a>
+            </div> --}}
+             
+
+         </div>
+         
+      </div>
+
+
+   <script src="/js/jquery.js"></script>
+   <script src="/js/bootstrap.js"></script>
+
+</body>
+
+</html>

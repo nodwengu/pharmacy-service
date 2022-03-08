@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+   <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" media="screen,projection" />
+   <link type="text/css" rel="stylesheet" href="css/style.css" media="screen,projection" />
+</head>
+
+<body>
+   <div class="container">
+      <div class="row d-flex justify-content-center" style="border: solid white 1px; margin-top: 12px;">
+         <h1>Health-Care Facilities</h1>
+      </div>
+      <div class="row">
+         <div class="budget pizza">
+            <table class="table table-sm " style="width:800px; margin-left:auto; margin-right:auto">
+               <thead>
+                  <th>ID</th>
+                  <th>Name</th>
+                  <th>Address</th>
+                  <th>Phone</th>
+                  <th>Action</th>
+               </thead>
+               {{#each facilities}}
+               <tr>
+                  <td style="vertical-align: middle;">#{{id}}</td>
+                  <td class="smallQuantity" style="vertical-align: middle;"><a href="/test">{{name}}</a></td>
+                  <td style="vertical-align: middle;">{{address}}</td>
+                  <td style="vertical-align: middle;">{{phone}}</td>
+                  <td>
+                     <a href="/pay-order/{{orderId}}" class="btn btn-outline-light orderBtn"
+                        style="margin-bottom: 10px;">Update{{buttonStatus}}</a>
+                     <a href="/pay-order/{{orderId}}" class="btn btn-outline-light orderBtn btn-danger"
+                        style="margin-bottom: 10px;">Remove{{buttonStatus}}</a>
+                  </td>
+               </tr>
+               {{/each}}
+            </table>
+
+         </div>
+      </div>
+
+
+
+   </div>
+
+   <script src="/js/jquery.js"></script>
+   <script src="/js/bootstrap.js"></script>
+
+</body>
+
+</html>

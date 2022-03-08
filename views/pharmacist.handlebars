@@ -1,0 +1,101 @@
+<div class="container-fluid" style="border:springgreen solid;">
+   <div class="mb-5 nav navbar navbar-light container-xl">
+      The navigation bar
+   </div>
+</div>
+
+<div class="container mb-5">
+   <div class="row justify-content-center" style="border: solid white 1px; margin-top: 12px;">
+      <h1>Reliable Pharmaceutical Service</h1><br><br>
+   </div>
+   <div class="row">
+      <div class="budget pizza">
+         <form action="/add-prescription" method="post">
+            {{!-- <h2 class="d-flex justify-content-center">Add Prescription</h2> --}}
+            <h2 class="d-flex">Add Prescription</h2>
+            <div class="form-group">
+               <label>Select patient:</label>
+               <select class="form-control" style="width: 50%;" name="name">
+                  <option>Choose patient:</option>
+                  {{#each patients}}
+                  <option>{{first_name}} {{last_name}}</option>
+                  {{/each}}
+               </select>
+            </div>
+
+            <div class="form-group">
+               <label>Select Medicine:</label>
+               <select class="form-control" style="width: 50%;" name="drug">
+                  <option>Choose medicine:</option>
+                  {{#each drugs}}
+                  <option name="{{name}}">{{name}}</option>
+                  {{/each}}
+               </select>
+            </div>
+
+            {{!-- <div class="form-group">
+               <label>Dosage/Directions</label>
+               <textarea class="form-control" style="width: 50%; text-align:left" name="dosage" focus=true></textarea>
+            </div> --}}
+
+
+            <div class="d-flex">
+               <button class="btn btn-outline-light orderBtn" type="submit">Create order</button>
+            </div>
+         </form>
+      </div>
+
+      <div class="budget pizza">
+         <h2 class="d-flex">Case Manifest/Prescription Order</h2>
+
+         <table>
+            <thead>
+               <tr>
+                  <th>ID</th>
+                  <th>Patient</th>
+                  <th>Medicine</th>
+                  <th>Dosage/directions</th>
+                  <th>Action</th>
+
+               </tr>
+            </thead>
+
+            {{#each prescriptions}}
+            <tr>
+               <td>#{{id}}</td>
+               <td>{{patient_id}}</td>
+               <td>{{drug_id}}</td>
+               <td>{{dosage}}</td>
+               <td>
+                  <a href="/update-prescription/{{id}}" class="btn btn-outline-light orderBtn" type="submit">Update</a>
+                  <a href="/delete-prescription/{{id}}" class="btn btn-outline-light btn-danger orderBtn"
+                     type="submit">Delete</a>
+               </td>
+
+            </tr>
+            {{/each}}
+
+         </table>
+      </div>
+   </div>
+
+
+   <div class="row">
+      {{#each drugs}}
+      <div class="col-3">
+         <div class="card large mt-3">
+            <img src="/images/three.jpeg" class="card-img-top" alt="...">
+            <div class="card-body">
+               <h3>{{name}}</h3>
+               <p class="card-text">Some quick example text</p>
+               {{!-- <h5>R{{price}}</h5>
+               <a href="/buy-large" class="btn btn-outline-light buyBtn" type="submit">Buy</a> --}}
+            </div>
+         </div>
+      </div>
+      {{/each}}
+
+
+   </div>
+
+</div>
